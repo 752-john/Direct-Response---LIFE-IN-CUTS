@@ -4,237 +4,525 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar errado está matando seus vídeos | Life in Cuts</title>
+    <title>Life in Cuts | Transforme sua rotina em vídeos magnéticos</title>
     <meta name="description"
-        content="Aprenda o método simples de edição focada em ritmo, corte e intenção para aumentar a retenção dos seus vídeos curtos e vender mais.">
+        content="Descubra como transformar rotinas comuns em vídeos aesthetic que prendem a atenção através de Ângulo, Corte e Ritmo.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
 
     <!-- OpenGraph -->
-    <meta property="og:title" content="Seus vídeos não prendem atenção porque sua edição está errada.">
-    <meta property="og:description" content="Método prático de edição focado em retenção real.">
+    <meta property="og:title" content="Seus vídeos morrem em 200 views? Descubra o porquê.">
+    <meta property="og:description" content="O segredo não é sua vida, é sua edição. Aprenda o método Life in Cuts.">
     <meta property="og:type" content="website">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Outfit:wght@700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #00ff66;
+            --accent-hover: #00dd55;
+            --border: rgba(255, 255, 255, 0.1);
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --max-width: 1100px;
+            --container-padding: 0 1.5rem
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -.02em
+        }
+
+        img {
+            max-width: 100%
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--container-padding)
+        }
+
+        .section {
+            padding: 100px 0
+        }
+
+        .section-secondary {
+            background-color: var(--bg-secondary)
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: #000;
+            padding: 1.25rem 2.5rem;
+            font-weight: 800;
+            font-size: 1.125rem;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: transform .2s ease, background-color .2s ease;
+            cursor: pointer;
+            border: none;
+            text-align: center
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px)
+        }
+
+        .cta-button:active {
+            transform: translateY(0)
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 12px
+        }
+
+        .text-accent {
+            color: var(--accent)
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .text-muted {
+            color: var(--text-secondary)
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all .6s cubic-bezier(0.2, 0.8, 0.2, 1)
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        @media (max-width:768px) {
+            .section {
+                padding: 60px 0
+            }
+
+            h1 {
+                font-size: 2.5rem
+            }
+
+            h2 {
+                font-size: 2rem
+            }
+
+            .cta-button {
+                padding: 1.4rem 2.5rem
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- SECTION 1: FIRST FOLD -->
-    <header class="section" id="hero">
+    <!-- 1. PRE-HEADLINE & 2. HEADLINE & 3. SUBHEADLINE -->
+    <header class="section" style="padding-bottom: 2rem;">
         <div class="container text-center">
-            <h1 style="font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 1.5rem;">
-                Seus vídeos não prendem atenção porque sua <span class="text-accent">edição está errada.</span>
-            </h1>
-            <p class="text-muted" style="font-size: 1.25rem; max-width: 700px; margin: 0 auto 2.5rem;">
-                Aprenda o método simples de edição que faz as pessoas assistirem até o fim, mesmo em vídeos de rotina.
-            </p>
-            <a href="#offer" class="cta-button">Quero corrigir minha edição agora</a>
+            <div class="reveal">
+                <!-- Pre-Headline -->
+                <p class="text-accent"
+                    style="font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.5rem; font-size: 0.9rem;">
+                    Por que seu shape parece incrível no espelho e "fino" na câmera do celular?
+                </p>
+
+                <!-- Headline -->
+                <h1 style="font-size: clamp(2rem, 6vw, 3.5rem); margin-bottom: 1.5rem; line-height: 1.1;">
+                    Transforme Seus Vídeos de Treino em <span class="text-accent">Edits Virais</span> Que Valorizam Seu
+                    Shape
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-muted"
+                    style="font-size: 1.25rem; max-width: 800px; margin: 0 auto 2.5rem; line-height: 1.6;">
+                    Pare de postar vídeos escuros e tremidos que escondem sua evolução. Descubra o método de 3 pilares
+                    (Luz, Ritmo e Pump)
+                    para criar aquela estética "Gym Motivation" que explode de visualizações.
+                </p>
+
+                <!-- DEMO VIDEO REMOVED AS REQUESTED -->
+                <!-- Placeholder for new Gym Aesthetic Intro if needed later -->
+            </div>
+
+            <!-- TRAINING CLIPS PLACEHOLDER -->
+            <!-- Pending user upload of 2-3 training clips -->
         </div>
     </header>
 
-    <!-- SECTION 2: IDENTIFICATION (PAINS) -->
-    <section class="section section-secondary">
-        <div class="container" style="max-width: 800px;">
+    <!-- 4. LEAD DE ENTRADA (Identificação) -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container" style="max-width: 700px;">
             <div class="reveal">
-                <h2 style="margin-bottom: 3rem; text-align: center;">Isso acontece com você?</h2>
-                <div style="display: grid; gap: 1.5rem;">
-                    <div class="glass" style="padding: 1.5rem;">
-                        <p><strong>Você posta.</strong> As pessoas pulam nos primeiros segundos.</p>
-                    </div>
-                    <div class="glass" style="padding: 1.5rem;">
-                        <p><strong>O vídeo parece amador.</strong> Mesmo que a imagem seja boa, falta "algo".</p>
-                    </div>
-                    <div class="glass" style="padding: 1.5rem;">
-                        <p><strong>Nada prende.</strong> Seus vídeos de rotina parecem chatos e cansativos.</p>
-                    </div>
-                </div>
+                <p style="margin-bottom: 1.5rem;">
+                    Você treina pesado. Come certo. O pump no espelho da academia está insano.
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    Você saca o celular para registrar o shape, achando que o vídeo vai ficar igual aos edits gringos.
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    Mas aí... decepção. <strong>A luz te deixa flat.</strong> O vídeo fica tremido e chato.
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    Enquanto isso, você vê alguém com o <em>mesmo shape que você</em> (ou até pior) amassando nos likes
+                    com um vídeo cinematográfico.
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    A culpa não é do seu shape. É da sua lente.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 3: MECHANISM -->
-    <section class="section">
-        <div class="container text-center">
+    <!-- 5. AGITAÇÃO DO PROBLEMA -->
+    <section class="section section-secondary">
+        <div class="container" style="max-width: 700px;">
             <div class="reveal">
-                <h2 style="margin-bottom: 2rem;">O problema não é a câmera.</h2>
-                <div style="max-width: 800px; margin: 0 auto;">
-                    <p style="font-size: 1.125rem; margin-bottom: 2rem;">
-                        Não é o aplicativo. Não é o preset mágico.
-                        <strong>É falta de ritmo, corte e intenção.</strong>
+                <h2 style="margin-bottom: 2rem; text-align: center;">O Ciclo da Invisibilidade</h2>
+                <p style="margin-bottom: 1.5rem;">
+                    Você já tentou presets, áudios em alta e transições da moda. Nada funcionou.
+                </p>
+
+                <div class="glass" style="padding: 2rem; margin: 2.5rem 0;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 1rem;">Os sintomas de que sua edição está
+                        errada:</p>
+                    <ul style="list-style: none; display: grid; gap: 0.8rem;">
+                        <li style="display: flex; gap: 0.5rem;"><span style="color: red;">✕</span> Vídeos com cara de
+                            amador, mesmo em 4K.</li>
+                        <li style="display: flex; gap: 0.5rem;"><span style="color: red;">✕</span> Ninguém comenta ou
+                            salva.</li>
+                        <li style="display: flex; gap: 0.5rem;"><span style="color: red;">✕</span> 2 horas editando para
+                            10 segundos de atenção.</li>
+                    </ul>
+                </div>
+
+                <p style="margin-bottom: 1.5rem;">
+                    Você está queimando sua criatividade em vídeos que nascem mortos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. REVELAÇÃO DA DESCOBERTA -->
+    <section class="section">
+        <div class="container" style="max-width: 700px;">
+            <div class="reveal">
+                <h2 style="margin-bottom: 2rem; text-align: center;" class="text-accent">A Grande Virada de Chave</h2>
+                <p style="margin-bottom: 1.5rem;">
+                    Eu quase desisti. Até que um dia, analisando frame por frame dos maiores criadores do mundo, eu
+                    percebi um padrão.
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    Não era sobre O QUE eles estavam filmando. Era sobre <strong>COMO</strong> eles mostravam.
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    Eles não tinham vidas mais interessantes. Eles tinham <strong>Ângulo, Corte e Ritmo.</strong>
+                </p>
+                <p style="margin-bottom: 1.5rem;">
+                    Eu descobri que a "estética gym" não é sorte. É saber onde colocar a câmera para
+                    transformar um supino comum em uma cena de filme. É saber cortar no <em>drop</em> da
+                    música para causar arrepio em quem assiste.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. PROVA SOCIAL (Updated) -->
+    <section class="section section-secondary">
+        <div class="container" style="max-width: 900px;">
+            <div class="reveal">
+                <div class="text-center" style="margin-bottom: 3rem;">
+                    <h2 style="margin-bottom: 1rem;">Resultados que Falam por Si</h2>
+                    <p class="text-muted">Não é mágica. É método. Veja o impacto na prática.</p>
+                </div>
+
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                    <!-- Card 1: 1M Views -->
+                    <div class="glass" style="padding: 2rem; text-align: left; position: relative; overflow: hidden;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
+                            <span style="font-size: 0.9rem; color: #fff; font-weight: 600;">Insights do reel</span>
+                            <span style="font-size: 0.8rem; color: var(--text-secondary);">Últimos 30 dias</span>
+                        </div>
+
+                        <div style="margin-bottom: 2rem;">
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Contas
+                                alcançadas</p>
+                            <p style="font-size: 2.5rem; font-weight: 800; line-height: 1; color: #fff;">1.029.534</p>
+                            <div class="insight-row"
+                                style="display: flex; gap: 0.5rem; align-items: center; margin-top: 0.5rem;">
+                                <span style="color: var(--accent); font-size: 0.8rem;">+12,400%</span>
+                                <span
+                                    style="background: var(--accent); height: 4px; width: 60px; border-radius: 2px; display: block;"></span>
+                            </div>
+                        </div>
+
+                        <div class="insight-stat-grid"
+                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div>
+                                <p style="font-size: 0.8rem; color: var(--text-secondary);">Tempo de exibição</p>
+                                <p style="font-size: 1.1rem; font-weight: 700;">1458h 49min</p>
+                            </div>
+                            <div>
+                                <p style="font-size: 0.8rem; color: var(--text-secondary);">Retenção média</p>
+                                <p style="font-size: 1.1rem; font-weight: 700;">58s</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: 690k Views -->
+                    <div class="glass" style="padding: 2rem; text-align: left; position: relative; overflow: hidden;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
+                            <span style="font-size: 0.9rem; color: #fff; font-weight: 600;">Insights do reel</span>
+                            <span style="font-size: 0.8rem; color: var(--text-secondary);">Últimos 30 dias</span>
+                        </div>
+
+                        <div style="margin-bottom: 2rem;">
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Contas
+                                alcançadas</p>
+                            <p style="font-size: 2.5rem; font-weight: 800; line-height: 1; color: #fff;">691.459</p>
+                            <div class="insight-row"
+                                style="display: flex; gap: 0.5rem; align-items: center; margin-top: 0.5rem;">
+                                <span style="color: var(--accent); font-size: 0.8rem;">+842%</span>
+                                <span
+                                    style="background: var(--accent); height: 4px; width: 40px; border-radius: 2px; display: block;"></span>
+                            </div>
+                        </div>
+
+                        <div class="insight-stat-grid"
+                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div>
+                                <p style="font-size: 0.8rem; color: var(--text-secondary);">Não seguidores</p>
+                                <p style="font-size: 1.1rem; font-weight: 700; color: #d62976;">92,3%</p>
+                            </div>
+                            <div>
+                                <p style="font-size: 0.8rem; color: var(--text-secondary);">Seguidores</p>
+                                <p style="font-size: 1.1rem; font-weight: 700; color: #4f5bd5;">7,7%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center" style="margin-bottom: 2rem;">
+                    <p style="font-style: italic; font-size: 1.1rem; margin-bottom: 1.5rem;">
+                        "Eu achava que precisava de um iPhone 15 Pro Max. Depois do método, fiz meu vídeo mais viral com
+                        um iPhone 11 quebrado."
                     </p>
-                    <div class="glass" style="padding: 3rem; text-align: left;">
-                        <h3 style="margin-bottom: 1.5rem;" class="text-accent">O Mecanismo Life in Cuts</h3>
-                        <p style="margin-bottom: 1.5rem;">O Life in Cuts ensina uma estrutura simples para decidir:</p>
-                        <ul style="list-style: none; display: grid; gap: 1rem;">
-                            <li>• <strong>Onde filmar:</strong> Como pensar a cena antes do REC.</li>
-                            <li>• <strong>Quando cortar:</strong> O timing exato para não perder o scroll.</li>
-                            <li>• <strong>Como criar ritmo:</strong> A estrutura que guia o olho do espectador.</li>
-                        </ul>
-                        <p style="margin-top: 2rem; font-weight: 700;">É isso que faz um vídeo parar de ser ignorado.
-                        </p>
-                    </div>
+                    <p style="font-style: italic; font-size: 1.1rem;">
+                        "Meus stories triplicaram de visualização só mudando os ângulos que eu filmava meu trabalho."
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 4: PRACTICAL BENEFITS -->
-    <section class="section section-secondary">
-        <div class="container">
-            <div class="reveal">
-                <h2 style="text-align: center; margin-bottom: 4rem;">O que muda na prática</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                    <div class="text-center">
-                        <h3 style="margin-bottom: 1rem;">Retenção Real</h3>
-                        <p class="text-muted">Vídeos mais curtos, objetivos e mais assistidos até o fim.</p>
-                    </div>
-                    <div class="text-center">
-                        <h3 style="margin-bottom: 1rem;">Menos é Mais</h3>
-                        <p class="text-muted">Menos tempo editando, mais impacto no resultado final.</p>
-                    </div>
-                    <div class="text-center">
-                        <h3 style="margin-bottom: 1rem;">Visual Profissional</h3>
-                        <p class="text-muted">Mesmo com celular, seus vídeos param de parecer amadores.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 5: SOCIAL PROOF -->
+    <!-- 8. APRESENTAÇÃO DA OFERTA (Mecanismo) -->
     <section class="section">
         <div class="container">
             <div class="reveal">
-                <h2 style="text-align: center; margin-bottom: 4rem;">Resultados Reais</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                <div class="text-center" style="margin-bottom: 4rem;">
+                    <h2 style="font-size: 2.5rem; line-height: 1;">Apresentando: <span class="text-accent">Life in
+                            Cuts</span></h2>
+                    <p
+                        style="font-size: 1.2rem; margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        O único treinamento passo a passo que ensina a "estética viral" para criadores comuns.
+                    </p>
+                </div>
+
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 4rem;">
+                    <!-- Módulo 1 -->
                     <div class="glass" style="padding: 2rem;">
-                        <p style="font-style: italic; margin-bottom: 1rem;">"Em uma semana, meus vídeos pararam de
-                            parecer amadores e começaram a reter."</p>
-                        <strong>— Aluno Life in Cuts</strong>
+                        <h3 style="margin-bottom: 1rem; color: var(--accent);">Módulo 1: O Olhar Dark Aesthetic</h3>
+                        <p style="margin-bottom: 1rem;">Como usar a luz da academia a seu favor.</p>
+                        <ul style="list-style: none; font-size: 0.9rem; color: var(--text-secondary);">
+                            <li style="margin-bottom: 0.5rem;">✓ Encontrando a "Luz de Deus" (Downlight)</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Ângulos que aumentam o shape (ilusão de ótica)</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Configurando a câmera para ambientes escuros</li>
+                        </ul>
                     </div>
+
+                    <!-- Módulo 2 -->
                     <div class="glass" style="padding: 2rem;">
-                        <p style="font-style: italic; margin-bottom: 1rem;">"Finalmente entendi onde cortar. A retenção
-                            mudou nos primeiros vídeos."</p>
-                        <strong>— Criador de Conteúdo</strong>
+                        <h3 style="margin-bottom: 1rem; color: var(--accent);">Módulo 2: O Corte no Drop</h3>
+                        <p style="margin-bottom: 1rem;">A técnica de edição para vídeos de motivação.</p>
+                        <ul style="list-style: none; font-size: 0.9rem; color: var(--text-secondary);">
+                            <li style="margin-bottom: 0.5rem;">✓ Sincronia perfeita: batida x repetição</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Speed Ramping (Câmera lenta na contração)</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Transições de impacto sem parecer brega</li>
+                        </ul>
+                    </div>
+                    <!-- Módulo 3 -->
+                    <div class="glass" style="padding: 2rem;">
+                        <h3 style="margin-bottom: 1rem; color: var(--accent);">Módulo 3: Trilha Sonora Viral</h3>
+                        <p style="margin-bottom: 1rem;">Phonk, Metal ou Rap? Como escolher.</p>
+                        <ul style="list-style: none; font-size: 0.9rem; color: var(--text-secondary);">
+                            <li style="margin-bottom: 0.5rem;">✓ Onde achar áudios sem copyright</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Mixagem de som ambiente (ferros batendo) + música</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Efeitos sonoros de impacto (Whoosh, Hit)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Módulo 4 -->
+                    <div class="glass" style="padding: 2rem;">
+                        <h3 style="margin-bottom: 1rem; color: var(--accent);">Módulo 4: Color Grading Dark</h3>
+                        <p style="margin-bottom: 1rem;">O segredo da pele bronzeada e fundo escuro.</p>
+                        <ul style="list-style: none; font-size: 0.9rem; color: var(--text-secondary);">
+                            <li style="margin-bottom: 0.5rem;">✓ Destacando veias e definição com contraste</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Tirando o "amarelado" da luz de academia</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Criando o visual "Batman" (Azul e Cinza)</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 6: OFFER -->
+    <!-- 9. STACK DE VALOR & 10. GARANTIA & 11. CTA -->
     <section class="section section-secondary" id="offer">
         <div class="container text-center">
             <div class="reveal">
-                <h2 style="margin-bottom: 1rem;">Liberar Acesso Vitalício</h2>
-                <p class="text-muted" style="margin-bottom: 3rem;">Tudo o que você precisa para dominar o ritmo da
-                    edição.</p>
-                <div class="glass" style="max-width: 600px; margin: 0 auto; padding: 3rem;">
-                    <ul style="list-style: none; text-align: left; margin-bottom: 2.5rem; display: grid; gap: 1rem;">
-                        <li>✓ Curso Digital Completo</li>
-                        <li>✓ Acesso Vitalício (+ Atualizações)</li>
-                        <li>✓ Assista no seu ritmo</li>
-                        <li>✓ Funciona 100% com Celular (CapCut base)</li>
-                        <li>✓ Conceito universal para qualquer editor</li>
-                    </ul>
 
-                    <!-- SECTION 7: PRICE & GUARANTEE -->
-                    <div style="border-top: 1px solid var(--border); padding-top: 2rem;">
-                        <p style="text-decoration: line-through; color: var(--text-secondary); margin-bottom: 0.5rem;">
-                            De R$ 497,00</p>
-                        <p style="font-size: 3rem; font-weight: 800; margin-bottom: 2rem;">R$ 197,00</p>
-                        <a href="#" class="cta-button" style="width: 100%;">Liberar meu acesso agora</a>
-                        <p style="margin-top: 2rem; font-size: 0.875rem;" class="text-muted">
-                            <strong>Garantia incondicional de 7 dias.</strong><br>
-                            Ou funciona para você, ou devolvemos 100% do valor.
+                <div class="glass"
+                    style="max-width: 650px; margin: 0 auto; padding: 3rem; border: 2px solid var(--border);">
+                    <h3 style="margin-bottom: 2rem; font-size: 1.8rem;">Vamos ser diretos?</h3>
+
+                    <div style="text-align: left; margin-bottom: 2rem; display: inline-block;">
+                        <p style="margin-bottom: 0.5rem;">Módulo 1: O Olhar Aesthetic ..................... <span
+                                style="color: var(--text-secondary);">R$ 97,00</span></p>
+                        <p style="margin-bottom: 0.5rem;">Módulo 2: O Corte Invisível ....................... <span
+                                style="color: var(--text-secondary);">R$ 127,00</span></p>
+                        <p style="margin-bottom: 0.5rem;">Módulo 3: Ritmo & Som .............................. <span
+                                style="color: var(--text-secondary);">R$ 127,00</span></p>
+                        <p style="margin-bottom: 0.5rem;">Módulo 4: Color Grading ............................. <span
+                                style="color: var(--text-secondary);">R$ 97,00</span></p>
+                        <p style="margin-bottom: 0.5rem;">Bônus: Guia de Equipamentos ................... <span
+                                style="color: var(--text-secondary);">R$ 49,00</span></p>
+                        <hr style="border-color: var(--border); margin: 1rem 0;">
+                        <p style="font-weight: 700; font-size: 1.2rem;">VALOR TOTAL: R$ 497,00</p>
+                    </div>
+
+                    <div
+                        style="background: rgba(0, 255, 102, 0.05); padding: 2rem; border-radius: 8px; border: 1px solid var(--accent); margin-bottom: 2rem;">
+                        <p
+                            style="text-decoration: line-through; color: var(--text-secondary); margin-bottom: 0.5rem; font-size: 1.1rem;">
+                            Hoje não é R$ 497,00
                         </p>
+                        <p
+                            style="font-size: 3.5rem; font-weight: 800; line-height: 1; margin-bottom: 1rem; color: #fff;">
+                            R$ 47,90
+                        </p>
+                        <p style="font-size: 0.9rem; margin-bottom: 0;">Pagamento único. Acesso vitalício.</p>
+                    </div>
+
+                    <a href="https://pay.kiwify.com.br/oRzVZx8" class="cta-button"
+                        style="width: 100%; font-size: 1rem; padding: 1.5rem 1rem;">
+                        SIM! QUERO ACESSO IMEDIATO POR R$ 47,90
+                    </a>
+
+                    <div
+                        style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
+                        <span>🔒 Pagamento Seguro</span>
+                        <span>•</span>
+                        <span>⚡ Acesso Instantâneo</span>
+                    </div>
+
+                    <!-- 10. GARANTIA -->
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border);">
+                        <div style="display: flex; gap: 1rem; align-items: flex-start; text-align: left;">
+                            <div style="font-size: 2.5rem;">🛡️</div>
+                            <div>
+                                <h4 style="margin-bottom: 0.5rem; color: #fff;">Garantia Incondicional de 7 Dias</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                                    Teste o Life in Cuts por 7 dias inteiros. Assista as aulas, aplique as técnicas. Se
+                                    você não sentir uma melhora brutal na qualidade dos seus vídeos, eu INSISTO que você
+                                    peça seu reembolso. Devolvo 100% do seu dinheiro. Sem perguntas, sem letras miúdas.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 8: FAQ -->
+    <!-- 12. P.S. -->
     <section class="section">
-        <div class="container" style="max-width: 800px;">
+        <div class="container" style="max-width: 700px;">
             <div class="reveal">
-                <h2 style="text-align: center; margin-bottom: 3rem;">Perguntas Frequentes</h2>
-                <div class="faq-list">
-                    <style>
-                        .faq-item {
-                            border-bottom: 1px solid var(--border);
-                        }
+                <p style="margin-bottom: 1rem;"><strong>P.S. 1:</strong> Esse preço de R$ 47,90 é uma oferta de "beta
+                    tester". Assim que coletarmos os primeiros 50 depoimentos novos, o preço vai subir para o valor
+                    original. Aproveite agora.</p>
+                <p style="margin-bottom: 1rem;"><strong>P.S. 2:</strong> Lembre-se, o risco é todo meu. Você tem 7 dias
+                    para testar. Se não gostar, é só mandar um e-mail e pegue seu dinheiro de volta.</p>
+                <p style="margin-bottom: 1rem;"><strong>P.S. 3:</strong> Não é sobre ter uma vida super interessante. É
+                    sobre saber onde apontar a câmera. Transforme o tédio em arte hoje mesmo.</p>
 
-                        .faq-question {
-                            padding: 1.5rem 0;
-                            cursor: pointer;
-                            display: flex;
-                            justify-content: space-between;
-                            font-weight: 700;
-                        }
-
-                        .faq-answer {
-                            max-height: 0;
-                            overflow: hidden;
-                            transition: max-height 0.3s ease;
-                            color: var(--text-secondary);
-                            padding-bottom: 0;
-                        }
-
-                        .faq-item.active .faq-answer {
-                            max-height: 200px;
-                            padding-bottom: 1.5rem;
-                        }
-
-                        .faq-question::after {
-                            content: '+';
-                            transition: transform 0.3s;
-                        }
-
-                        .faq-item.active .faq-question::after {
-                            transform: rotate(45deg);
-                        }
-                    </style>
-                    <div class="faq-item">
-                        <div class="faq-question">Preciso de computador?</div>
-                        <div class="faq-answer">Não. O método é ensinado usando o celular (CapCut), mas os conceitos de
-                            ritmo e intenção funcionam em qualquer programa de edição.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">Quanto tempo tenho de acesso?</div>
-                        <div class="faq-answer">O acesso é vitalício. Você pode assistir e revisar as aulas sempre que
-                            quiser.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">Serve para quem está começando do zero?</div>
-                        <div class="faq-answer">Sim. O método foca no processo de pensamento e decisão, que é o que
-                            falta para quem está começando.</div>
-                    </div>
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#offer"
+                        style="text-decoration: underline; color: var(--text-secondary); font-size: 0.9rem;">Ir para o
+                        topo e garantir minha vaga</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 9: FOOTER -->
-    <footer class="section section-secondary text-center">
+    <footer class="section section-secondary text-center" style="padding: 2rem 0;">
         <div class="container">
-            <h2 style="margin-bottom: 1.5rem;">Ainda com dúvida?</h2>
-            <p class="text-muted" style="margin-bottom: 2.5rem;">Sua edição é o que separa um vídeo ignorado de um vídeo
-                assistido.</p>
-            <a href="#offer" class="cta-button">Quero corrigir minha edição agora</a>
-            <div style="margin-top: 5rem; font-size: 0.75rem;" class="text-muted">
-                <p>&copy; 2026 Life in Cuts. Todos os direitos reservados.</p>
-                <p style="margin-top: 1rem;">Termos de Uso | Políticas de Privacidade</p>
-            </div>
+            <p style="font-size: 0.75rem; color: var(--text-secondary);">&copy; 2026 Life in Cuts. Todos os direitos
+                reservados.</p>
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => { const e = document.querySelectorAll(".reveal"), t = new IntersectionObserver(e => { e.forEach(e => { e.isIntersecting && e.target.classList.add("active") }) }, { threshold: .1 }); e.forEach(e => { t.observe(e) }); const c = document.querySelectorAll(".faq-item"); c.forEach(e => { e.querySelector(".faq-question").addEventListener("click", () => { const t = e.classList.contains("active"); c.forEach(e => { e.classList.remove("active") }), t || e.classList.add("active") }) }); const a = document.querySelectorAll('a[href^="#"]'); a.forEach(e => { e.addEventListener("click", function (e) { e.preventDefault(); const t = this.getAttribute("href"), c = document.querySelector(t); c && c.scrollIntoView({ behavior: "smooth" }) }) }) });
+    </script>
 </body>
 
 </html>

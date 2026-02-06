@@ -3,7 +3,8 @@
     --bg-secondary: #0a0a0a;
     --text-primary: #ffffff;
     --text-secondary: #a0a0a0;
-    --accent: #00ff66; /* Neon Green for high contrast DR CTA */
+    --accent: #00ff66;
+    /* Neon Green for high contrast DR CTA */
     --accent-hover: #00dd55;
     --border: rgba(255, 255, 255, 0.1);
     --font-heading: 'Outfit', sans-serif;
@@ -27,7 +28,10 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     font-family: var(--font-heading);
     font-weight: 700;
     line-height: 1.1;
@@ -91,9 +95,17 @@ a {
 }
 
 /* Typography Utilities */
-.text-accent { color: var(--accent); }
-.text-center { text-align: center; }
-.text-muted { color: var(--text-secondary); }
+.text-accent {
+    color: var(--accent);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
+    color: var(--text-secondary);
+}
 
 /* Animation Classes */
 .reveal {
@@ -108,7 +120,39 @@ a {
 }
 
 @media (max-width: 768px) {
-    .section { padding: 60px 0; }
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 2rem; }
+    .section {
+        padding: 60px 0;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .cta-button {
+        padding: 1.4rem 2.5rem;
+    }
+
+    /* Mobile Adjustments */
+    .glass {
+        padding: 1.5rem !important;
+    }
+
+    h1 {
+        font-size: 2.2rem !important;
+    }
+
+    .insight-row {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.5rem;
+    }
+
+    .insight-stat-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.5rem !important;
+    }
 }
