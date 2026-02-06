@@ -191,26 +191,32 @@
                         style="margin-bottom: 1.5rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">
                         Na Prática: Do Treino ao Viral</h3>
 
-                    <!-- PLACEHOLDER FOR USER VIDEOS -->
-                    <!-- Suba seus 3 vídeos na pasta 'assets' e descomente as linhas abaixo -->
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
-                        <!-- 
-                    <div class="glass" style="aspect-ratio: 9/16; display: flex; align-items: center; justify-content: center;">
-                        <p style="color: var(--text-secondary);">Vídeo 1 (Substituir)</p>
-                    </div>
-                    <div class="glass" style="aspect-ratio: 9/16; display: flex; align-items: center; justify-content: center;">
-                        <p style="color: var(--text-secondary);">Vídeo 2 (Substituir)</p>
-                    </div>
-                    <div class="glass" style="aspect-ratio: 9/16; display: flex; align-items: center; justify-content: center;">
-                         <p style="color: var(--text-secondary);">Vídeo 3 (Substituir)</p>
-                    </div> 
-                    -->
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                        <!-- Video 1 -->
                         <div class="glass"
-                            style="padding: 2rem; border-style: dashed; border-color: var(--text-secondary);">
-                            <p style="text-align: center; color: var(--text-secondary);">
-                                [Espaço reservado para seus vídeos de treino]<br>
-                                Mostrando: Ângulo Baixo, Iluminação de Topo, Edição no Beat.
-                            </p>
+                            style="padding: 0; overflow: hidden; border-radius: 12px; position: relative; aspect-ratio: 9/16; background: #000;">
+                            <video class="lazy-video" width="100%" height="100%" loop muted playsinline preload="none"
+                                style="object-fit: cover; display: block;">
+                                <source src="./assets/treino1.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay"
+                                style="position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; font-size: 0.7rem;">
+                                👇 Luz de Topo
+                            </div>
+                        </div>
+
+                        <!-- Video 2 -->
+                        <div class="glass"
+                            style="padding: 0; overflow: hidden; border-radius: 12px; position: relative; aspect-ratio: 9/16; background: #000;">
+                            <video class="lazy-video" width="100%" height="100%" loop muted playsinline preload="none"
+                                style="object-fit: cover; display: block;">
+                                <source src="./assets/treino2.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay"
+                                style="position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px; font-size: 0.7rem;">
+                                ⚡ Edição no Beat
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -543,7 +549,36 @@
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => { const e = document.querySelectorAll(".reveal"), t = new IntersectionObserver(e => { e.forEach(e => { e.isIntersecting && e.target.classList.add("active") }) }, { threshold: .1 }); e.forEach(e => { t.observe(e) }); const c = document.querySelectorAll(".faq-item"); c.forEach(e => { e.querySelector(".faq-question").addEventListener("click", () => { const t = e.classList.contains("active"); c.forEach(e => { e.classList.remove("active") }), t || e.classList.add("active") }) }); const a = document.querySelectorAll('a[href^="#"]'); a.forEach(e => { e.addEventListener("click", function (e) { e.preventDefault(); const t = this.getAttribute("href"), c = document.querySelector(t); c && c.scrollIntoView({ behavior: "smooth" }) }) }) });
+        document.addEventListener("DOMContentLoaded", () => {
+            // Reveal Animation
+            const e = document.querySelectorAll(".reveal"), t = new IntersectionObserver(e => { e.forEach(e => { e.isIntersecting && e.target.classList.add("active") }) }, { threshold: .1 }); e.forEach(e => { t.observe(e) });
+
+            // FAQ Logic
+            const c = document.querySelectorAll(".faq-item"); c.forEach(e => { e.querySelector(".faq-question").addEventListener("click", () => { const t = e.classList.contains("active"); c.forEach(e => { e.classList.remove("active") }), t || e.classList.add("active") }) });
+
+            // Smooth Scroll
+            const a = document.querySelectorAll('a[href^="#"]'); a.forEach(e => { e.addEventListener("click", function (e) { e.preventDefault(); const t = this.getAttribute("href"), c = document.querySelector(t); c && c.scrollIntoView({ behavior: "smooth" }) }) });
+
+            // Smart Video Loading (Performance)
+            // Videos only play when visible and data saver friendly
+            const videos = document.querySelectorAll(".lazy-video");
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const video = entry.target;
+                        // Start loading and playing
+                        video.play().catch(e => console.log("Auto-play prevented", e));
+                    } else {
+                        const video = entry.target;
+                        video.pause();
+                    }
+                });
+            }, { threshold: 0.5 }); // Needs 50% visibility
+
+            videos.forEach(video => {
+                videoObserver.observe(video);
+            });
+        });
     </script>
 </body>
 
